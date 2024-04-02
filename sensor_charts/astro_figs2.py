@@ -11,7 +11,7 @@ data[2] = Humidity
 data[3] = Pressure
 '''
 
-
+format = '-'
 
 # updates all sensor data
 def get_chart_data():
@@ -25,10 +25,12 @@ def get_chart_data():
 
 # used within create_figure() to make each chart
 def create_axis(axis):
+
+        
 	if (axis == 'temp'):
 		# create timeseries chart for temp
 		temp_chart.plot_date(timestamp, temp, label='Temperature', 
-			linestyle='solid', marker=None)
+			fmt=format)
 		
 		# Set title as Sensor Data because it is the first to render
 		# all charts will share an x-axis
@@ -38,14 +40,14 @@ def create_axis(axis):
 	elif (axis == 'humidity'):
 		# create humidity chart
 		humidity_chart.plot_date(timestamp, humid, label='Humidity',
-			linestyle='solid', marker=None)
+			fmt=format)
 		
 		humidity_chart.set_ylabel('Humidity')
 		
 	elif (axis == 'pressure'):
 		# create pressure chart
 		pressure_chart.plot_date(timestamp, pressure, label='Pressure',
-			linestyle='solid', marker=None)
+			fmt=format)
 		
 		pressure_chart.set_ylabel('Pressure')
 		# Add a x-label to Pressure chart because all charts share x-axis 
@@ -91,7 +93,6 @@ temp = []
 humid = []
 pressure = []
 	
-
 # choose style for charts
 plt.style.use('Solarize_Light2')
 
@@ -111,7 +112,8 @@ fig, (temp_chart, humidity_chart, pressure_chart) = \
 
 create_figure()
 
-ani = FuncAnimation(plt.gcf(), animate_figure, interval=1000)
+# ani creates the function that will run the animation for the charts.
+# ani = FuncAnimation(plt.gcf(), animate_figure, interval=1000)
 
 
 plt.show()
