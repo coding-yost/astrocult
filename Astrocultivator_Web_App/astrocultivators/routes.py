@@ -31,5 +31,6 @@ def csv():
     # ax = fig.subplots()
     # ax.plot([1, 2])
 
+    return render_template('csv.html', title='Show Data')
     
     return 
