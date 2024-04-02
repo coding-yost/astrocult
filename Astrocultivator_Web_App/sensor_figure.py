@@ -12,7 +12,6 @@ def get_figure():
     '''
 
     format = '-'
-    # date_format = mpl_dates.DateFormatter('%H:%M:%S')
 
     # read in .csv data
     data = pd.read_csv('test_seconds.csv', header=None)
