@@ -20,6 +20,7 @@ def home():
 
     return render_template('home.html', 
                            rgb_image=url_for('static', filename='images/RGB_Images/Straight_1.png'), 
+                           objdet_image=url_for('static', filename='images/Object Detected Photo/Straight 1.png'),
                            sensor_data_figure=f'data:image/png;base64,{data}')
 
 @app.route("/csv")
